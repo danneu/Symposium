@@ -1,4 +1,7 @@
 Symposium::Application.routes.draw do
+  root to: "forums#index"
+  resources :forums
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
