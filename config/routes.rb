@@ -1,6 +1,12 @@
 Symposium::Application.routes.draw do
+
+  get "signin" => "sessions#new", as: "signin"
+  get "logout" => "sessions#destroy", as: "logout"
+  get "signup" => "users#new", as: "signup"
   root to: "forums#index"
   resources :forums
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
