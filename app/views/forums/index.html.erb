@@ -10,6 +10,7 @@
     <td>
       <%= link_to forum.name, forum, class: "forum-name" %>
       <%= forum.description %>
+
     </td>
     <td>
       <span class="last-post-title"><%= link_to "Some Thread", root_path %></span>
@@ -27,4 +28,6 @@
 
 <br />
 
-<%= link_to 'New Forum', new_forum_path, class: "btn primary" %>
+<% if can? :create, Forum %>
+  <%= link_to 'New Forum', new_forum_path, class: "btn primary" %>
+<% end %>

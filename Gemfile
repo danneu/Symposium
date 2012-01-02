@@ -4,6 +4,7 @@ gem 'rails', '3.2.0.rc1'
 gem 'bootstrap-sass', '~> 1.4.3'
 gem 'sqlite3'
 gem 'sorcery'
+gem 'cancan'
 
 
 # Gems used only for assets and not required

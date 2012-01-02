@@ -1,13 +1,7 @@
 class ForumsController < ApplicationController
-  # GET /forums
-  # GET /forums.json
-  def index
-    @forums = Forum.all
+  load_and_authorize_resource
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @forums }
-    end
+  def index
   end
 
   # GET /forums/1
