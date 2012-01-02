@@ -37,11 +37,11 @@
 
       <div class="content">
         <div class="page-header">
-          <h1><%= content_for?(:page_heder) ? yield(:page_header) : "Untitled Page" %></h1>
+          <% if content_for? :page_header %>
+          <h1><%= yield(:page_header) %></h1>
+          <% end %>
         </div>
-        <div class="row">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
 
     </div> <!-- /container -->

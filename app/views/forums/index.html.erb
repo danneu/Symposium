@@ -1,7 +1,6 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
+<table class="forums">
+  <tr class="table-header">
+    <th>Forum</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,9 +8,11 @@
 
 <% @forums.each do |forum| %>
   <tr>
-    <td><%= forum.name %></td>
-    <td><%= forum.description %></td>
-    <td><%= link_to 'Show', forum %></td>
+    <td>
+      <%= link_to forum.name, forum, class: "forum-name" %>
+      <%= forum.description %>
+    </td>
+    <td></td>
     <td><%= link_to 'Edit', edit_forum_path(forum) %></td>
     <td><%= link_to 'Destroy', forum, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -20,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New Forum', new_forum_path %>
+<%= link_to 'New Forum', new_forum_path, class: "btn primary" %>

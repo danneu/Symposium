@@ -14,7 +14,14 @@
 
 @import "bootstrap";
 
+$blue: #0069D6;
+
 body {
   padding-top: 40px;
+}
+
+.table-header {
+  background: $blue;
+  color: #ffffff;
 }
 
