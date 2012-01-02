@@ -1,9 +1,8 @@
 <table class="forums">
   <tr class="table-header">
     <th>Forum</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Last Poster</th>
+    <th>Threads</th>
   </tr>
 
 <% @forums.each do |forum| %>
@@ -12,9 +11,16 @@
       <%= link_to forum.name, forum, class: "forum-name" %>
       <%= forum.description %>
     </td>
-    <td></td>
-    <td><%= link_to 'Edit', edit_forum_path(forum) %></td>
-    <td><%= link_to 'Destroy', forum, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <span class="last-post-title"><%= link_to "Some Thread", root_path %></span>
+      <span class="last-post-author">by <%= link_to "Dude88", root_path %></span>
+      <div class="last-post-time">7 minutes ago</div>
+    </td>
+    <td> 897 </td>
+    <td>
+      <%= link_to 'Edit', edit_forum_path(forum), class: "btn" %>
+      <%= link_to 'Destroy', forum, confirm: 'Are you sure?', method: :delete, class: "btn" %>
+    </td>
   </tr>
 <% end %>
 </table>
