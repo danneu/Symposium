@@ -32,10 +32,10 @@
 
           <% else %>
             <%= form_tag sessions_path, class: "pull-right" do %>
-            <%= link_to "Create a New Account", signup_path %> or
-            <%= text_field_tag :username, params[:username], placeholder: "Username", class: "input-small" %>
-            <%= password_field_tag :password, params[:password], placeholder: "Password", class: "input-small" %>
-            <button class="btn" type="submit">Sign in</button>
+              <%= link_to "Create a New Account", signup_path %> or
+              <%= text_field_tag :username, params[:username], placeholder: "Username", class: "input-small" %>
+              <%= password_field_tag :password, params[:password], placeholder: "Password", class: "input-small" %>
+              <button class="btn" type="submit">Sign in</button>
             <% end %>
           <% end %>
         </div>

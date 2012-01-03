@@ -3,6 +3,7 @@
     <th>Forum</th>
     <th>Last Poster</th>
     <th>Threads</th>
+    <% if can? :manage, Forum; %><th>Moderator</th><% end %>
   </tr>
 
 <% @forums.each do |forum| %>
@@ -18,10 +19,12 @@
       <div class="last-post-time">7 minutes ago</div>
     </td>
     <td> 897 </td>
+    <% if can? :manage, Forum %>
     <td>
       <%= link_to 'Edit', edit_forum_path(forum), class: "btn" %>
       <%= link_to 'Destroy', forum, confirm: 'Are you sure?', method: :delete, class: "btn" %>
     </td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -7,4 +7,5 @@ module ApplicationHelper
   def cancel_button(options={path: root_path})
     link_to "Cancel", options[:path], class: "btn"
   end
+
 end
