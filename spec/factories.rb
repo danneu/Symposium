@@ -1,11 +1,11 @@
-Factory.define :member do |f|
+Factory.define :member, class: User do |f|
   f.username "testman"
   f.email "testman@example.com"
   f.password "secret"
   f.role "member"
 end
 
-Factory.define :admin do |f|
+Factory.define :admin, class: User do |f|
   f.username "testman"
   f.email "testman@example.com"
   f.password "secret"

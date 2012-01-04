@@ -19,7 +19,15 @@ describe ForumsController do
     end
 
     describe 'when admin' do
-      it 'should resolve'
+      p @controller
+      #@user = Factory.create :admin
+      @user = User.create!(username: "Test", password: "secret", email: "test@test.com")
+      p @user.inspect
+      login_user @user
+      it 'should resolve' do
+        get :new
+        response.should render_template(:new)
+      end
     end
 
   end
