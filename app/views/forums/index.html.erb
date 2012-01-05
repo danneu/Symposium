@@ -1,8 +1,10 @@
+<% content_for :page_header, "Symposium" %>
+
 <table class="forums">
   <tr class="table-header">
     <th>Forum</th>
     <th>Last Poster</th>
-    <th>Threads</th>
+    <th>Topics</th>
     <% if can? :manage, Forum; %><th>Moderator</th><% end %>
   </tr>
 
@@ -18,7 +20,7 @@
       <span class="last-post-author">by <%= link_to "Dude88", root_path %></span>
       <div class="last-post-time">7 minutes ago</div>
     </td>
-    <td> 897 </td>
+    <td><%= forum.topics.count %></td>
     <% if can? :manage, Forum %>
     <td>
       <%= link_to 'Edit', edit_forum_path(forum), class: "btn" %>

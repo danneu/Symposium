@@ -10,6 +10,7 @@ class Ability
       can :manage, :all
     when "member"
       can :read,   :all
+      can :manage, Topic, user_id: user.id
     when "banned"
       can :read,   :all
     else # guest

@@ -22,6 +22,16 @@ body {
 .topbar {
   color: #fff;
 }
+.userbox {
+  .logout {
+    margin-left: 15px;
+  }
+}
+
+.forums, .topics {
+  margin-top: 10px;
+}
+
 
 .table-header {
   background: $blue;

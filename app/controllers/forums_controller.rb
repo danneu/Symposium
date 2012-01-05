@@ -5,6 +5,7 @@ class ForumsController < ApplicationController
   end
 
   def show
+    @topics = @forum.topics
   end
 
   def new
@@ -31,7 +32,6 @@ class ForumsController < ApplicationController
 
   def destroy
     @forum.destroy
-    flash[:success] = "Successfully destroyed forum."
-    redirect_to forums_url
+    redirect_to forums_url, alert: "Successfully destroyed forum."
   end
 end

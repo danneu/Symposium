@@ -1,0 +1,8 @@
+<%= bootstrap_form_for [@forum, @topic] do |f| %>
+  <%= f.text_field :title %>
+
+  <div class="actions">
+    <%= f.submit %>
+    <%= cancel_button path: [@forum, @topic] %>
+  </div>
+<% end %>

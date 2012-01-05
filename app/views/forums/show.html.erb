@@ -1,15 +1,60 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page_header, @forum.name %>
+<%
+breadcrumbize do 
+  [@forum.name]
+end 
+%>
 
-<p>
-  <b>Name:</b>
-  <%= @forum.name %>
-</p>
+<% if can? :create, Topic %>
+  <%= link_to 'New Topic', new_forum_topic_path(@forum), class: "btn primary" %>
+<% end %>
 
-<p>
-  <b>Description:</b>
-  <%= @forum.description %>
-</p>
+<table class="topics">
+  <tr class="table-header">
+    <th>Topic</th>
+    <th>Last Post</th>
+    <th>Posts</th>
+    <% if can? :manage, Topic; %><th>Moderator</th><% end %>
+  </tr>
+<% if @topics.empty? %>
+  <tr><td>This forum has no topics.</tr></td>
+<% else %>
+  <% @topics.each do |topic| %>
+    <tr>
+      <!-- Topic -->
+      <td>
+        <div class="topic-title"><%= link_to topic.title, forum_topic_path(@forum, topic) %></div>
+        <span class="topic-creator">by <%= topic.creator.username %></span>
+      </td>
 
+      <!-- Last Post -->
+      <td>
+        <div class="topic-last-post">
+          <%= link_to 'less than a minute ago'  %>
+        </div>
+        <span class="topic-last-post-creator">
+          by <%= link_to topic.creator.username %>
+        </span>
+      </td>
 
-<%= link_to 'Edit', edit_forum_path(@forum) %> |
-<%= link_to 'Back', forums_path %>
+      <!-- Post Count -->
+      <td>
+        <div class="topic-post-count">18</div>
+      </td>
+
+      <% if can? :manage, Topic %>
+        <!-- Moderator -->
+        <td>
+          <%= link_to 'Edit', edit_forum_topic_path(@forum, topic), class: "btn" %>
+          <%= link_to 'Destroy', [@forum, topic], confirm: 'Are you sure?', method: :delete, class: "btn" %>
+        </td>
+      <% end %>
+
+    </tr> 
+  <% end %>
+<% end %>
+</table>
+
+<% if can? :create, Topic %>
+  <%= link_to 'New Topic', new_forum_topic_path(@forum), class: "btn primary" %>
+<% end %>

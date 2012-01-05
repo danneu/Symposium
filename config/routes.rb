@@ -4,7 +4,9 @@ Symposium::Application.routes.draw do
   get "logout" => "sessions#destroy", as: "logout"
   get "signup" => "users#new", as: "signup"
   root to: "forums#index"
-  resources :forums
+  resources :forums do
+    resources :topics
+  end
   resources :users
   resources :sessions
 

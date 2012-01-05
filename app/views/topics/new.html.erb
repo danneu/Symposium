@@ -1,0 +1,5 @@
+<% content_for :page_header, "New Topic" %>
+<% breadcrumbize do
+  [link_to(@forum.name, @forum), "New Topic"]
+end %>
+<%= render "form" %>

@@ -6,9 +6,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_url, success: "Successfully signed up."
+      login(params[:user][:username],
+            params[:user][:password],
+            1)
+      redirect_to root_url, notice: "Successfully signed up."
     else
-      flash.now[:error] = "You must correct the errors before you can sign up."
+      flash.now.alert = "You must correct the errors before you can sign up."
       render :new
     end
   end
