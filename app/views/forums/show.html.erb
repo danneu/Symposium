@@ -39,7 +39,9 @@ end
 
       <!-- Post Count -->
       <td>
-        <div class="topic-post-count">18</div>
+        <div class="topic-post-count">
+          <%= topic.posts.count %> 
+        </div>
       </td>
 
       <% if can? :manage, Topic %>

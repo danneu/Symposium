@@ -1,0 +1,43 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$padding: 10px;
+
+.posts { margin: 10px 0; }
+.post {
+  margin: 10px 0;
+  background: #DDDDDD;
+  .post-user {
+    padding: $padding;
+    text-align: center;
+    .username {
+      padding-bottom: $padding/2;
+    }
+    .avatar {
+      //margin: 5px;
+    }
+    .postcount {
+
+    }
+  }
+
+  .post-content {
+    padding: $padding;
+    .post-time {
+      padding-bottom: $padding/2;
+      font-style: italic;
+      text-align: right;
+    }
+    .post-body {
+      min-height: 90px;
+    }
+    .post-actions {
+      padding-top: $padding/2;
+      text-align: right;
+    }
+  }
+}
+
+
+

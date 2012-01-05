@@ -3,21 +3,26 @@ class TopicsController < ApplicationController
   load_and_authorize_resource :topic, through: :forum
 
   def show
+    @posts = @topic.posts
   end
 
   def new
+    @post = @topic.posts.build
   end
 
   def create
+    @topic.creator = current_user 
+    @topic.posts.first.creator = current_user
     if @topic.save
-      redirect_to forum_topic_path(@forum, @topic)
+      redirect_to forum_topic_path(@forum, @topic), notice: "Topic created successfully."
     else
-      flash.now.alert = "Errors"
+      flash.now.alert = "Topic was not created."
       render :new
     end
   end
 
   def edit
+    @post = @topic.posts.first
   end
 
   def update

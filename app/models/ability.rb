@@ -11,6 +11,8 @@ class Ability
     when "member"
       can :read,   :all
       can :manage, Topic, user_id: user.id
+      can :create, Topic
+      can :manage, Post, user_id: user.id
     when "banned"
       can :read,   :all
     else # guest

@@ -1,5 +1,14 @@
 <%= bootstrap_form_for [@forum, @topic] do |f| %>
+@topic.posts:
+  <pre><%= @topic.posts  %></pre>
+
+@topic.inspect:
+ <pre><%= @topic.inspect %></pre>
   <%= f.text_field :title %>
+
+  <%= f.fields_for :posts, @post do |p| %>
+    <%= p.text_area :body, rows: 2 %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

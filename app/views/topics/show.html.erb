@@ -2,3 +2,59 @@
 <% breadcrumbize do
   [link_to(@forum.name, @forum), @topic.title]
 end %>
+
+<%= link_to "New Reply", new_topic_post_path(@topic), class: "btn primary" %>
+
+<div class="posts">
+  <% first_post = true %>
+  <% @posts.each do |post| %>
+    <div class="row post">
+        <div class="span3">
+
+          <!-- User -->
+          <div class="post-user">
+            <div class="username">
+              <%= post.creator.username %>
+            </div>
+            <div class="avatar">
+              <%= image_tag "http://www.dentistry.co.uk/forum/forum_graphics/avatar_placeholder.gif" %>
+            </div>
+            <div class="join_date">
+              <%= month_year post.creator.created_at %>
+            </div>
+            <div class="postcount">
+              Posts: <%= post.creator.posts.count %>
+            </div>
+          </div>
+        </div>
+        <!-- /User -->
+
+        <!-- Post -->
+        <div class="span13">
+          <div class="post-content">
+            <div class="post-time">
+              <%= (time_ago_in_words post.created_at).humanize %> ago 
+            </div>
+            <div class="post-body">
+              <%= post.body %>
+            </div>
+            <div class="post-actions">
+              <% if first_post # edit topic %>
+                <%= link_to "Edit", edit_forum_topic_path(@forum, @topic), class: "btn small" %>
+                <%= link_to "Delete", [@forum, @topic], method: :delete, confirm: "Are you sure?",  class: "btn small" %>
+              <% else # edit just the post %>
+                <%= link_to "Edit", edit_topic_post_path(@topic, post), class: "btn small" %>
+                <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?",  class: "btn small" %>
+              <% end %>
+              <%= button_tag "Reply", class: "btn small" %>
+            </div> 
+          </div>
+        </div>
+      <!-- /Post -->
+
+    </div>
+  <% first_post = false %>
+  <% end %>
+</div>
+
+<%= link_to "New Reply", new_topic_post_path(@topic), class: "btn primary" %>

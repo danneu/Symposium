@@ -9,8 +9,8 @@ module ApplicationHelper
   end
   
   def flash_messages
-    content_tag(:div, flash[:alert], class: "alert-message warning") if flash[:alert]
-    content_tag(:div, flash[:notice], class: "alert-message success") if flash[:notice]
+    return content_tag(:div, flash[:alert], class: "alert-message error") if flash[:alert]
+    return content_tag(:div, flash[:notice], class: "alert-message success") if flash[:notice]
   end
 
   def breadcrumbize(&block)
@@ -29,6 +29,10 @@ module ApplicationHelper
       _markup.html_safe
     end
     markup.html_safe
+  end
+
+  def month_year(date)
+    date.strftime("%b %Y")
   end
 
 end

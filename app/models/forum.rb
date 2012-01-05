@@ -1,6 +1,5 @@
 class Forum < ActiveRecord::Base
-  has_many :topics
-  accepts_nested_attributes_for :topics
+  has_many :topics, dependent: :destroy
 
   validates_presence_of :name
   validates_presence_of :description
