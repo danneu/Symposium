@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :password, on: :create
   validates_presence_of :username
-  validates_presence_of :email
+  #validates_presence_of :email
 
   ROLES = %w[admin member banned]
   def is?(_role); role == _role.to_s;  end
