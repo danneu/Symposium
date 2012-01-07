@@ -24,7 +24,7 @@ But also I run a really big vBulletin forum where I absolutely despise trying to
 
 * **Heroku** (Cedar stack) for hosting. I pine for a hosting solution for my vBulletin forum where I could feed it more resources with a slider bar and watch the impact in New Relic. I'm no database admin, so I've been logging countless nights into trying to figure out why the community's server would die on me. 
 * **Sorcery** for authentication (logging in, logging out, current_user). It's much lighter and flexible than Devise. ([github](https://github.com/NoamB/sorcery)) ([railscast](http://railscasts.com/episodes/283-authentication-with-sorcery))
-* **CanCan** for authorization (the admin role can create forums, the member role can only edit their own topics, etc.). (github) (railscast)
+* **CanCan** for authorization (the admin role can create forums, the member role can only edit their own topics, etc.). ([github](https://github.com/ryanb/cancan)) ([railscast](http://railscasts.com/episodes/192-authorization-with-cancan))
 * **Twitter Bootstrap** as a CSS framework. You'll notice that Symposium is clean and pretty in its [live demo](http://agathon.herokuapp.com/). I find development much more enjoyable when the application already looks alright from the first commit. It helps me think in turns of user experience as I code. It's also getting a responsive design in version 2.0. ([website](http://twitter.github.com/bootstrap/))
 * **bb-ruby** for post formatting. It renders bbcode from `@post.body` into HTML in `@post.rendered_body`. bb-ruby is to bbcode as RDiscount is to Markdown. 
 
