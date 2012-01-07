@@ -30,7 +30,7 @@ end
       <!-- Last Post -->
       <td>
         <div class="topic-last-post">
-          <%= link_to 'less than a minute ago'  %>
+          <%= time_ago_in_words topic.latest_post.created_at %> ago
         </div>
         <span class="topic-last-post-creator">
           by <%= link_to topic.creator.username %>
