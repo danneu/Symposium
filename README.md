@@ -1,6 +1,6 @@
 # Symposium
 
-* In ancient Greece, a symposium was a drinking party for people of good family to debate, plot, boast, or simply to revel with others. i.e. I procrastinated my freshman-level Philosphy & Rhetoric requisite until my final semester of university last month.
+* *In ancient Greece, a symposium was a drinking party for people of good family to debate, plot, boast, or simply to revel with others.*
 * Github: https://github.com/danneu/symposium
 
 -----
