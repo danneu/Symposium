@@ -16,9 +16,9 @@
 
     </td>
     <td>
-      <span class="last-post-title"><%= link_to "Some Thread", root_path %></span>
-      <span class="last-post-author">by <%= link_to "Dude88", root_path %></span>
-      <div class="last-post-time">7 minutes ago</div>
+      <span class="last-post-title"><%= link_to forum.latest_topic.title, forum_topic_path(forum, forum.latest_topic) %></span>
+      <span class="last-post-author">by <%= link_to forum.latest_topic.latest_post.creator.username, root_path %></span>
+      <div class="last-post-time"><%= time_ago_in_words forum.latest_topic.latest_post.created_at %> ago</div>
     </td>
     <td><%= forum.topics.count %></td>
     <% if can? :manage, Forum %>
