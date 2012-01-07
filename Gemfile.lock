@@ -83,6 +83,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     multipart-post (1.1.4)
+    newrelic_rpm (3.3.1)
     nokogiri (1.5.0)
     oauth (0.4.5)
     oauth2 (0.4.1)
@@ -176,6 +177,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.0)
   factory_girl_rails
   jquery-rails
+  newrelic_rpm
   pg
   rails (= 3.2.0.rc1)
   rspec-rails

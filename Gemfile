@@ -6,6 +6,7 @@ gem 'sorcery'
 gem 'cancan'
 gem 'thin'
 gem 'pg', group: :production
+gem 'newrelic_rpm'
 
 
 # Gems used only for assets and not required
