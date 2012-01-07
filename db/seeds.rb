@@ -8,7 +8,7 @@
 
 Forum.destroy_all
 Topic.destroy_all
-User.destroy_all
+#User.destroy_all
 
 Forum.create(name: "News and Announcements",
              description: "Official news is posted here.")
@@ -17,14 +17,14 @@ Forum.create(name: "Newbie Introductions",
 Forum.create(name: "Off-Topic Discussion",
              description: "Talk about anything.")
 
-admin = User.create(username: "admin",
-                    password: "admin",
-                    email: "lol@lol.com") 
-admin.update_attributes(role: "admin")
-admin.save
-member = User.create(username: "member",
-                     password: "member",
-                     email: "lol@lol.com")
+#admin = User.create(username: "admin",
+                    #password: "admin",
+                    #email: "lol@lol.com") 
+#admin.update_attributes(role: "admin")
+#admin.save
+#member = User.create(username: "member",
+                     #password: "member",
+                     #email: "lol@lol.com")
 
 
 #topic_titles = ["This forum rules!", "Someone respond to this :(", "What is your favorite number?",
