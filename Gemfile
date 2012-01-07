@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0.rc1'
 gem 'bootstrap-sass', '~> 1.4.3'
-gem 'sqlite3'
 gem 'sorcery'
 gem 'cancan'
+gem 'thin'
+gem 'pg', group: :production
 
 
 # Gems used only for assets and not required
@@ -26,5 +27,5 @@ group :test do
 end
 
 group :development do
-  gem 'thin'
+  gem 'sqlite3'
 end
