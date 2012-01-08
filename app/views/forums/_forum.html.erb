@@ -20,8 +20,11 @@
   <!-- Topic Count -->
   <td><%= forum.topics.size %></td>
 
-  <!-- Post Count -->
+  <!-- Post Count --> 
   <td><%= forum.topics.sum { |t| t.posts.size } %></td>
+  <% 
+    # OPTIMIZE: Imagine how bad this would be with many topics
+  %>
 
   <!-- Moderator -->
   <% if can? :manage, Forum %>

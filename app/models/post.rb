@@ -2,8 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic, counter_cache: true
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
 
-  # Either add or remove this post's created_at from its topic's latest_post_at
-  # cache.
+  # Keep an updated `latest_post_at` in parent topic.
   after_create :update_topic_latest_post_at
   after_destroy :recalculate_topic_latest_post_at
 
@@ -17,6 +16,7 @@ class Post < ActiveRecord::Base
   def update_topic_latest_post_at
     self.topic.update_attributes(latest_post_at: self.created_at)
   end
+
   def recalculate_topic_latest_post_at 
     self.topic.update_attributes(latest_post_at: self.topic.latest_post_at)
   end
