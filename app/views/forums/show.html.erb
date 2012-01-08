@@ -24,7 +24,7 @@ end
       <!-- Topic -->
       <td>
         <div class="topic-title"><%= link_to topic.title, forum_topic_path(@forum, topic) %></div>
-        <span class="topic-creator">by <%= topic.creator.username %></span>
+        <span class="topic-creator">by <%= topic.creator %></span>
       </td>
 
       <!-- Last Post -->
@@ -33,7 +33,7 @@ end
           <%= time_ago_in_words topic.latest_post.created_at %> ago
         </div>
         <span class="topic-last-post-creator">
-          by <%= link_to topic.creator.username %>
+          by <%= link_to topic.creator %>
         </span>
       </td>
 

@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   def member?;    role == "member";    end
   def banned?;    role == "banned";    end
 
+  def to_s
+    username
+  end
+
   private
 
   def set_default_role
