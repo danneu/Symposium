@@ -16,7 +16,7 @@ class Topic < ActiveRecord::Base
   end
   
   def latest_post
-    self.posts.last
+    self.posts.by_created_at.last
   end
 
 end

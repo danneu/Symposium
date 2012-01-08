@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   after_create :update_topic_latest_post_at
   after_destroy :recalculate_topic_latest_post_at
 
+  scope :by_created_at, order(:created_at)
+
   validates_presence_of :body
   validates_presence_of :user_id
   #validates_presence_of :topic_id

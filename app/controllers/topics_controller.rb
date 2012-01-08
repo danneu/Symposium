@@ -2,8 +2,8 @@ class TopicsController < ApplicationController
   load_and_authorize_resource :forum
   load_and_authorize_resource :topic, through: :forum
 
-  def show # FIXME: Why aren't  posts ordered by id on heroku?
-    @posts = @topic.posts.order('id')
+  def show 
+    @posts = @topic.posts.by_created_at
   end
 
   def new
