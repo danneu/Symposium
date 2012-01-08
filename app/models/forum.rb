@@ -7,7 +7,7 @@ class Forum < ActiveRecord::Base
   delegate :latest_post, to: :latest_topic
 
   def latest_topic
-    self.topics.first
+    self.topics.by_latest_post.first
   end
 
 end

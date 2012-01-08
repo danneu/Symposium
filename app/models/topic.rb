@@ -5,11 +5,12 @@ class Topic < ActiveRecord::Base
 
   accepts_nested_attributes_for :posts
 
-  default_scope order: 'updated_at DESC'
+  scope :by_latest_post, joins(:posts).order('posts.created_at DESC').group('topics.id')
 
   validates_presence_of :title
   validates_presence_of :forum_id
   validates_presence_of :user_id
+
 
   def latest_post
     self.posts.last

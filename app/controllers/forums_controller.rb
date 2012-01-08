@@ -5,7 +5,7 @@ class ForumsController < ApplicationController
   end
 
   def show
-    @topics = @forum.topics
+    @topics = @forum.topics.by_latest_post
   end
 
   def new
