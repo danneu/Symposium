@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
     username
   end
 
+  def latest_topic; self.topics.last; end
+  def latest_post; self.posts.last; end 
+
   private
 
   def set_default_role

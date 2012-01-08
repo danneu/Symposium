@@ -35,4 +35,8 @@ module ApplicationHelper
     date.strftime("%b %Y")
   end
 
+  def profile_for(user)
+    link_to user, user
+  end
+
 end

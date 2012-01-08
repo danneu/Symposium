@@ -1,0 +1,22 @@
+<% content_for :page_header, @user %>
+<% breadcrumbize do
+  [link_to("Members", users_path), @user]
+end
+%>
+
+<div class="row profile">
+  <div class="span3">
+    <%= image_tag asset_path("avatar.gif") %>
+  </div>
+  <div class="span13">
+
+    <ul>
+      <li>Role: <%= @user.role %></li>
+      <li>Joined: <%= time_ago_in_words @user.created_at %> ago</li>
+      <li>Topics: <%= @user.topics.size %>
+      <li>Posts: <%= @user.posts.size %></li>
+    </ul>
+
+  </div>
+</div>
+

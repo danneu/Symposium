@@ -11,7 +11,10 @@ class Topic < ActiveRecord::Base
   validates_presence_of :forum_id
   validates_presence_of :user_id
 
-
+  def to_s
+    title
+  end
+  
   def latest_post
     self.posts.last
   end
