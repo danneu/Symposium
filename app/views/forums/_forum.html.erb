@@ -1,9 +1,12 @@
 <tr>
+
+  <!-- Forum -->
   <td>
     <%= link_to forum.name, forum, class: "forum-name" %>
     <%= forum.description %>
-
   </td>
+
+  <!-- Latest Post -->
   <td>
     <% if forum.latest_topic %>
       <span class="last-post-title"><%= link_to truncate(forum.latest_topic.title), forum_topic_path(forum, forum.latest_topic) %></span>
@@ -13,7 +16,14 @@
       No Topics
     <% end %>
   </td>
+
+  <!-- Topic Count -->
   <td><%= forum.topics.count %></td>
+
+  <!-- Post Count -->
+  <td><%= forum.topics.sum { |t| t.posts.count } %></td>
+
+  <!-- Moderator -->
   <% if can? :manage, Forum %>
     <td>
       <%= link_to 'Edit', edit_forum_path(forum), class: "btn" %>
