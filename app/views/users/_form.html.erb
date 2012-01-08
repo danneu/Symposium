@@ -1,8 +1,8 @@
 <%= bootstrap_form_for @user do |f| %>
   <%= f.text_field :username %>
   <%# f.text_field :email %>
-  <%= f.text_field :password %>
-  <%= f.text_field :password_confirmation %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
 
   <div class="actions">
     <%= f.submit "Sign Up" %>
