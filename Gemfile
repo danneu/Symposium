@@ -5,7 +5,7 @@ gem 'bootstrap-sass', '~> 1.4.3'
 gem 'sorcery'
 gem 'cancan'
 gem 'thin'
-gem 'pg', group: :production
+gem 'pg'
 gem 'newrelic_rpm'
 
 
@@ -25,8 +25,4 @@ gem 'rspec-rails', group: [:test, :development]
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
-end
-
-group :development do
-  gem 'sqlite3'
 end
