@@ -1,6 +1,6 @@
 class Topic < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  belongs_to :forum
+  belongs_to :forum, counter_cache: true
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
 
   accepts_nested_attributes_for :posts

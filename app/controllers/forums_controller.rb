@@ -2,10 +2,11 @@ class ForumsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @forums = @forums.includes(:topics)
   end
 
   def show
-    @topics = @forum.topics.by_latest_post
+    @topics = @forum.topics.by_latest_post.includes(:creator, :posts)
   end
 
   def new

@@ -18,10 +18,10 @@
   </td>
 
   <!-- Topic Count -->
-  <td><%= forum.topics.count %></td>
+  <td><%= forum.topics.size %></td>
 
   <!-- Post Count -->
-  <td><%= forum.topics.sum { |t| t.posts.count } %></td>
+  <td><%= forum.topics.sum { |t| t.posts.size } %></td>
 
   <!-- Moderator -->
   <% if can? :manage, Forum %>

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :topic
+  belongs_to :topic, counter_cache: true
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
 
   # Either add or remove this post's created_at from its topic's latest_post_at
