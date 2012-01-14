@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0.rc1'
 gem 'bootstrap-sass', '~> 1.4.3'
-gem 'sorcery'
+gem 'devise'
 gem 'cancan'
 gem 'thin'
 gem 'pg'

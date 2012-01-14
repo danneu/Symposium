@@ -1,0 +1,17 @@
+<% content_for :page_header, "Sign Up" %>
+
+<%= bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.text_field :username %>
+  <%= f.email_field :email, placeholder: "testing@testing.com" %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+
+  <div class="actions">
+    <%= f.submit "Sign Up" %>
+    <%= cancel_button %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

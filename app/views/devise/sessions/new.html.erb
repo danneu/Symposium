@@ -1,0 +1,15 @@
+<% content_for :page_header, "Sign In" %>
+
+<%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.text_field :username %>
+  <%= f.password_field :password %>
+  <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me %>
+  <% end -%>
+  <div class="actions">
+    <%= f.submit "Sign In" %>
+    <%= cancel_button %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

@@ -20,7 +20,7 @@ Forum.create(name: "Off-Topic Discussion",
 admin = User.create(username: "admin",
                     password: "admin",
                     email: "lol@lol.com") 
-admin.update_attributes(role: "admin")
+admin.role = "admin"
 admin.save
 member = User.create(username: "member",
                      password: "member",

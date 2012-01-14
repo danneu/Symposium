@@ -1,8 +1,10 @@
 Symposium::Application.routes.draw do
 
-  get "signin" => "sessions#new", as: "signin"
-  get "logout" => "sessions#destroy", as: "logout"
-  get "signup" => "users#new", as: "signup"
+  devise_for :users
+
+  #get "signin" => "sessions#new", as: "signin"
+  #get "logout" => "sessions#destroy", as: "logout"
+  #get "signup" => "users#new", as: "signup"
   root to: "forums#index"
   resources :forums do
     resources :topics
@@ -11,7 +13,7 @@ Symposium::Application.routes.draw do
     resources :posts
   end
   resources :users
-  resources :sessions
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
