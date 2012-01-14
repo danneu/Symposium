@@ -1,5 +1,3 @@
 <% content_for :page_header, "Edit Post" %>
-<% breadcrumbize do
-  [link_to(@topic.forum.name, @topic.forum), link_to(@topic.title, @topic), "Edit Post"]
-end %>
+<% breadcrumbize link_to(@topic.forum.name, @topic.forum), link_to(@topic.title, @topic), "Edit Post" %>
 <%= render "form" %>

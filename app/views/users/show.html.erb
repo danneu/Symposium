@@ -1,8 +1,5 @@
 <% content_for :page_header, @user %>
-<% breadcrumbize do
-  [link_to("Members", users_path), @user]
-end
-%>
+<% breadcrumbize link_to("Members", users_path), @user %>
 
 <div class="row profile">
   <div class="span3">

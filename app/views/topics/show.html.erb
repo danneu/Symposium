@@ -1,7 +1,5 @@
 <% content_for :page_header, @topic.title %>
-<% breadcrumbize do
-  [link_to(@forum.name, @forum), @topic.title]
-end %>
+<% breadcrumbize link_to(@forum.name, @forum), @topic.title %>
 
 <%= new_topic_link %>
 

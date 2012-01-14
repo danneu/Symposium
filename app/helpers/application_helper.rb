@@ -13,8 +13,10 @@ module ApplicationHelper
     return content_tag(:div, flash[:notice], class: "alert-message success") if flash[:notice]
   end
 
-  def breadcrumbize(&block)
-    @breadcrumbs = yield
+  # In a view, use `<% breadcrumbize array, of, links %>` to build the
+  # breadcrumbs. "Home" is already given, so just specify what comes after.
+  def breadcrumbize(*crumbs)
+    @breadcrumbs = [*crumbs]
   end
   def breadcrumbs
     return '' if @breadcrumbs.nil?

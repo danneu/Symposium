@@ -1,9 +1,5 @@
 <% content_for :page_header, @forum.name %>
-<%
-breadcrumbize do 
-  [@forum.name]
-end 
-%>
+<% breadcrumbize @forum.name %>
 
 <% if can? :create, Topic %>
   <%= link_to 'New Topic', new_forum_topic_path(@forum), class: "btn primary" %>
