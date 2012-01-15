@@ -11,4 +11,9 @@ FactoryGirl.define do
     password "secret"
   end
 
+  factory :forum, class: Forum do
+    name "testforum"
+    description "testdescription"
+  end
+
 end
