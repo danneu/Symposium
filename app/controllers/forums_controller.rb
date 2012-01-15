@@ -32,6 +32,6 @@ class ForumsController < ApplicationController
 
   def destroy
     @forum.destroy
-    redirect_to forums_url, alert: "Successfully destroyed forum."
+    redirect_to root_path, alert: "Successfully destroyed forum."
   end
 end

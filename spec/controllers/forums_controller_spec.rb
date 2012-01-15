@@ -19,6 +19,12 @@ describe ForumsController, :type => :controller do
     @forum = Factory :forum
   end
 
+  def assert_deny
+    flash[:alert].should =~ /Access Denied/
+    response.should redirect_to(root_path)
+  end
+
+
   describe 'GET index' do
     it 'should resolve' do
       get :index
@@ -30,26 +36,42 @@ describe ForumsController, :type => :controller do
     describe "GET new" do
       it "should redirect to root" do
         get :new
-        response.should redirect_to(root_path)
+        assert_deny
       end
     end
     describe "GET edit" do
       it "should deny" do
         get :edit
-        response.should redirect_to(root_path)
+        assert_deny
       end
     end
     describe "GET show" do
-      it "should resolve"
+      it "should resolve" do
+        forum = Factory :forum
+        get :show, id: forum.id
+        response.should render_template(:show)
+      end
     end
     describe "POST create" do
-      it "should deny"
+      it "should deny" do
+        post :create, forum: Factory.build(:forum).attributes
+        assert_deny
+      end
     end
     describe "PUT update" do
-      it "should deny"
+      it "should deny" do
+        forum = Factory :forum
+        put :update, id: forum.id, forum: forum.attributes.merge(name: "New Name")
+        assert_deny
+      end
     end
     describe "DELETE destroy" do
-      it "should deny"
+      it "should deny" do
+        forum = Factory :forum
+        delete :destroy, id: forum.id
+        assert_deny
+      end
+
     end
   end
 
@@ -81,16 +103,30 @@ describe ForumsController, :type => :controller do
       end
     end
     describe "POST create" do
-      #it "should resolve" do
-        #post :create, forum: Factory.build(:forum)
-        #response.should render_template(:index)
-      #end
+      it "should create and redirect" do
+        forum_count = Forum.count
+        forum = Factory.build :forum
+        post :create, forum: forum.attributes
+        Forum.count.should == (forum_count + 1)
+        response.should redirect_to(Forum.last)
+      end
     end
     describe "PUT update" do
-      it "should resolve"
+      it "should resolve" do
+        forum = Factory :forum
+        put :update, id: forum.id, forum: forum.attributes.merge(name: "New Name")
+        Forum.last.name.should == "New Name"
+        response.should redirect_to(forum)
+      end
     end
     describe "DELETE destroy" do
-      it "should resolve"
+      it "should successfully destroy and return to root" do
+        forum = Factory :forum
+        forums_count = Forum.count
+        delete :destroy, id: forum.id
+        Forum.count.should == (forums_count - 1)
+        response.should redirect_to(root_path)
+      end
     end
   end
 
