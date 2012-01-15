@@ -1,7 +1,15 @@
 require 'spec_helper'
 
-describe ForumsController do
+describe ForumsController, :type => :controller do
   render_views
+  
+  before(:all) do
+    User.destroy_all
+    @member = Factory :member
+    @admin = Factory :admin
+    @admin.role = "admin"
+    @admin.save
+  end
 
   describe 'GET index' do
     it 'should resolve' do
@@ -19,11 +27,10 @@ describe ForumsController do
     end
 
     describe 'when admin' do
-      p @controller
-      #@user = Factory.create :admin
-      @user = User.create!(username: "Test", password: "secret", email: "test@test.com")
-      p @user.inspect
-      login_user @user
+      before(:each) do
+        sign_in @admin
+        puts @admin.inspect
+      end
       it 'should resolve' do
         get :new
         response.should render_template(:new)
