@@ -19,7 +19,9 @@ describe "UserSignups" do
     click_link "Sign Up"
     click_button "Sign Up"
     page.should have_content("4 errors prohibited this user from being saved")
-    page.should have_content("can't be blank")
+    page.should have_content("Email can't be blank")
+    page.should have_content("Password can't be blank")
+    page.should have_content("Username can't be blank")
   end
 
   it "should return an error when password and password confirmation do not match" do
@@ -28,10 +30,10 @@ describe "UserSignups" do
     fill_in "Username", :with => "sample"
     fill_in "Email", :with => "test@example.com"
     fill_in "Password", :with => "something"
-    fill_in "Password", :with => "different"
+    fill_in "Password confirmation", :with => "different"
     click_button "Sign Up"
     page.should have_content("2 errors prohibited this user from being saved")
-    page.should have_content("doesn't match confirmation")
+    page.should have_content("Password doesn't match confirmation")
   end
 end
 
